@@ -1,0 +1,206 @@
+.whiteboard-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.whiteboard-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.whiteboard-toolbar h1 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+  font-weight: 600;
+}
+
+.toolbar-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.add-note-button,
+.clear-button {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.add-note-button {
+  background: #646cff;
+  color: white;
+  border-color: #646cff;
+}
+
+.add-note-button:hover {
+  background: #535bf2;
+  border-color: #535bf2;
+}
+
+.clear-button:hover:not(:disabled) {
+  background: #f5f5f5;
+  border-color: #ccc;
+}
+
+.clear-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.notes-count {
+  font-size: 14px;
+  color: #666;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.whiteboard {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.3) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.whiteboard-hint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.welcome-message {
+  text-align: center;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 2px dashed #ddd;
+  max-width: 400px;
+}
+
+.welcome-message h2 {
+  margin: 0 0 16px 0;
+  color: #333;
+  font-size: 1.5em;
+}
+
+.welcome-message p {
+  margin: 8px 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.welcome-message p:first-of-type {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .whiteboard-toolbar {
+    padding: 8px 12px;
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .whiteboard-toolbar h1 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .toolbar-buttons {
+    justify-content: center;
+  }
+
+  .welcome-message {
+    margin: 20px;
+    padding: 20px;
+    max-width: none;
+  }
+
+  .welcome-message h2 {
+    font-size: 1.3em;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .whiteboard-container {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  }
+
+  .whiteboard-toolbar {
+    background: #333;
+    border-bottom-color: #555;
+  }
+
+  .whiteboard-toolbar h1 {
+    color: #fff;
+  }
+
+  .notes-count {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #555;
+    color: #ccc;
+  }
+
+  .clear-button {
+    background: #444;
+    border-color: #555;
+    color: #ccc;
+  }
+
+  .clear-button:hover:not(:disabled) {
+    background: #555;
+    border-color: #666;
+  }
+
+  .welcome-message {
+    background: rgba(51, 51, 51, 0.95);
+    border-color: #555;
+  }
+
+  .welcome-message h2 {
+    color: #fff;
+  }
+
+  .welcome-message p {
+    color: #ccc;
+  }
+
+  .welcome-message p:first-of-type {
+    color: #fff;
+  }
+}
